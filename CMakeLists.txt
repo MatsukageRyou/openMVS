@@ -29,6 +29,8 @@ SET(OpenMVS_USE_SSE ON CACHE BOOL "Enable SSE optimizations")
 SET(OpenMVS_MAX_CUDA_COMPATIBILITY OFF CACHE BOOL "Build for maximum CUDA device compatibility")
 SET(OpenMVS_ENABLE_TESTS ON CACHE BOOL "Enable test code")
 
+SET(VCPKG_ROOT "c:/dev/vcpkg")
+
 # Load automatically VCPKG toolchain if available
 IF(NOT DEFINED CMAKE_TOOLCHAIN_FILE AND DEFINED ENV{VCPKG_ROOT})
 	SET(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
@@ -160,6 +162,8 @@ else()
 	SET(CUDA_CUDA_LIBRARY "")
 endif()
 
+SET(Boost_ROOT "C:/dev/boost_1_82_0")
+
 if(OpenMVS_USE_BREAKPAD)
 	FIND_PACKAGE(BREAKPAD)
 	if(BREAKPAD_FOUND)
@@ -199,6 +203,8 @@ if(Boost_FOUND)
 		SET(_USE_BOOST_PYTHON TRUE)
 	endif()
 endif()
+
+SET(EIGEN3_INCLUDE_DIR "C:/eigen/include/eigen3")
 
 FIND_PACKAGE(Eigen3 REQUIRED)
 if(EIGEN3_FOUND)
